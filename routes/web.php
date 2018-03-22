@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::prefix('admin')->group(function() {
+    Route::get('/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('logout/', 'Admin\Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+}) ;
+
+Route::get('/home', 'HomeController@index')->name('home');

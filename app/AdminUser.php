@@ -1,22 +1,22 @@
 <?php
-
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Str;
 
-class User extends Authenticatable
+class AdminUser extends Authenticatable
 {
     use Notifiable;
-
+    
+    protected $guard = 'admin';
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password','uuid'
+        'first_name', 'last_name', 'email', 'password', 'status'
     ];
 
     /**
@@ -27,12 +27,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public static function boot()
-    {
-        parent::boot();
-        self::creating(function ($model) {
-            $model->uuid = (string) Str::uuid();
-        });
-    }
-}
+   }
