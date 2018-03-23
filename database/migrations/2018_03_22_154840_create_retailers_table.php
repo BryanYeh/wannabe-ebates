@@ -29,6 +29,8 @@ class CreateRetailersTable extends Migration
             $table->dateTime('expiration');
             $table->boolean('status')->default(true);
             $table->integer('affiliate_network_id');
+            $table->boolean('store_of_week')->default(false);
+            $table->boolean('featured_store')->default(false);
             $table->timestamps();
         });
     }
