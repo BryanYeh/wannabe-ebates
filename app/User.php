@@ -11,6 +11,13 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -32,7 +39,7 @@ class User extends Authenticatable
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->uuid = (string) Str::uuid();
+            $model->id = (string) Str::uuid();
         });
     }
 }
