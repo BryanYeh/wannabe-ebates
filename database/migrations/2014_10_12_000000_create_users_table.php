@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('status')->default(false);
-            $table->decimal('total_cashback', 6, 2)->default(0);
+            $table->float('total_cashback', 8, 2)->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
