@@ -19,9 +19,9 @@ class CreateCategoriesTable extends Migration
             $table->integer('parent')->default(0);
             $table->string('title');
             $table->string('slug');
-            $table->string('description')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('meta_keywords')->nullable();
+            $table->text('description')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
             $table->boolean('status')->default(true);
             $table->integer('position')->default(0);
             $table->timestamps();

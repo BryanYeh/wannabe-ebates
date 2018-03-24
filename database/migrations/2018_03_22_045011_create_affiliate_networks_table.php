@@ -16,6 +16,7 @@ class CreateAffiliateNetworksTable extends Migration
         Schema::create('affiliate_networks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('website');
             $table->string('logo')->nullable();
             $table->boolean('status')->default(true);
