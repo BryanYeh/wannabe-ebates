@@ -22,6 +22,7 @@ class CreateBannersTable extends Migration
             $table->dateTime('end_date');
             $table->int('width');
             $table->int('height');
+            $table->unsignedInteger('retailer_id');
             $table->timestamps();
         });
     }
