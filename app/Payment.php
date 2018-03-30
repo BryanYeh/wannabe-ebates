@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Coupon extends Model
+class Payment extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -13,15 +13,12 @@ class Coupon extends Model
      */
 
     protected $fillable = [
-        'title',
-        'code',
-        'link',
-        'description',
-        'start_date',
-        'end_date',
-        'coupon_type_id',
+        'amount',
+        'reference_id',
+        'type',
+        'user_id',
+        'payment_status_id',
         'retailer_id',
-        'exclusive',
-        'status'
+        'trip_number'
     ];
 }

@@ -12,6 +12,6 @@ class AffiliateNetwork extends Model
      * @var array
      */
     protected $fillable = [
-        'name','website','logo','status','subid'
+        'name','slug','website','logo','status','subid'
     ];
 }

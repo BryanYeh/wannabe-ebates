@@ -17,7 +17,7 @@ class Retailer extends Model
         'tracking_link',
         'program_id',
         'description',
-        'condition',
+        'conditions',
         'tags',
         'seo_title',
         'meta_description',
@@ -27,6 +27,8 @@ class Retailer extends Model
         'status',
         'affiliate_network_id',
         'store_of_week',
-        'featured_store'
+        'featured_store',
+        'start_date',
+        'end_date'
     ];
 }

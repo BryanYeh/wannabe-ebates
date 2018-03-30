@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Banner extends Model
+class Cashback extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,13 +12,6 @@ class Banner extends Model
      * @var array
      */
     protected $fillable = [
-        'image',
-        'link',
-        'title',
-        'start_date',
-        'end_date',
-        'width',
-        'height',
-        'retailer_id'
+        'amount','type','retailer_id'
     ];
 }

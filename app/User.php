@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var bool
      */
-    public $incrementing = false;
+    // public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password','uuid'
+        'first_name', 'last_name', 'email', 'password'
     ];
 
     /**
@@ -35,11 +35,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function boot()
-    {
-        parent::boot();
-        self::creating(function ($model) {
-            $model->id = (string) Str::uuid();
-        });
-    }
+    // public static function boot()
+    // {
+    //     parent::boot();
+    //     self::creating(function ($model) {
+    //         $model->id = (string) Str::uuid();
+    //     });
+    // }
 }
