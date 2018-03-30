@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCashbacksTable extends Migration
+class CreatePaymentStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateCashbacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('cashbacks', function (Blueprint $table) {
+        Schema::create('payment_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('amount', 8, 2);
-            $table->char('type',1)->default('%'); // % or $
-            $table->unsignedInteger('retailer_id');
-            $table->foreign('retailer_id')->references('id')->on('retailers')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateCashbacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cashbacks');
+        Schema::dropIfExists('payment_statuses');
     }
 }
