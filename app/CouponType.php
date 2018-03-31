@@ -15,4 +15,9 @@ class CouponType extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public function coupons()
+    {
+        return $this->hasMany('App\Coupon');
+    }
 }

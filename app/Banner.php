@@ -21,4 +21,9 @@ class Banner extends Model
         'height',
         'retailer_id'
     ];
+
+    public function retailer()
+    {
+        return $this->belongsTo('App\Retailer');
+    }
 }

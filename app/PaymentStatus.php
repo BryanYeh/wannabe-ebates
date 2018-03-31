@@ -15,4 +15,9 @@ class PaymentStatus extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public function payments()
+    {
+        return $this->hasMany('App\Payment');
+    }
 }

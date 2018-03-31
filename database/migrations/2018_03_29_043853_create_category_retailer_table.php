@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryRetailerPivotTable extends Migration
+class CreateCategoryRetailerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCategoryRetailerPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_retailer_pivot', function (Blueprint $table) {
+        Schema::create('category_retailer', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
@@ -30,6 +30,6 @@ class CreateCategoryRetailerPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_retailer_pivot');
+        Schema::dropIfExists('category_retailer');
     }
 }

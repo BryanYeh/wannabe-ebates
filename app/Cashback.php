@@ -14,4 +14,9 @@ class Cashback extends Model
     protected $fillable = [
         'amount','type','retailer_id'
     ];
+
+    public function reatiler()
+    {
+        return $this->belongsTo('App\Retailer');
+    }
 }

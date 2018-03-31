@@ -14,4 +14,9 @@ class AffiliateNetwork extends Model
     protected $fillable = [
         'name','slug','website','logo','status','subid'
     ];
+
+    public function retailers()
+    {
+        return $this->hasMany('App\Retailer');
+    }
 }

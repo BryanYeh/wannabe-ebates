@@ -24,4 +24,14 @@ class Coupon extends Model
         'exclusive',
         'status'
     ];
+
+    public function couponTypes()
+    {
+        return $this->belongsTo('App\CouponType');
+    }
+
+    public function retailer()
+    {
+        return $this->belongsTo('App\Retailer');
+    }
 }

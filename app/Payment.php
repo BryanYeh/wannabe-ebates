@@ -21,4 +21,19 @@ class Payment extends Model
         'retailer_id',
         'trip_number'
     ];
+
+    public function retailer()
+    {
+        return $this->belongsTo('App\Retailer');
+    }
+
+    public function paymentStatus()
+    {
+        return $this->belongsTo('App\PaymentStatus');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

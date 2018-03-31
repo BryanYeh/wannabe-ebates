@@ -42,4 +42,14 @@ class User extends Authenticatable
     //         $model->id = (string) Str::uuid();
     //     });
     // }
+
+    public function payments()
+    {
+        return $this->hasMany('App\Payment');
+    }
+
+    public function clicks()
+    {
+        return $this->hasMany('App\Click');
+    }
 }

@@ -22,4 +22,9 @@ class Category extends Model
         'status',
         'position'
     ];
+
+    public function retailers()
+    {
+        return $this->belongsToMany('App\Retailer')->withTimestamps();
+    }
 }
