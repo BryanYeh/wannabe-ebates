@@ -16,7 +16,7 @@ class CreateCouponTypesTable extends Migration
         Schema::create('coupon_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');//coupon code, printable coupon, sale
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
