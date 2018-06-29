@@ -17,6 +17,7 @@ class CreateRetailersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('website');
+            $table->string('logo');
             $table->string('tracking_link')->nullable();
             $table->string('program_id')->nullable();
             $table->text('description')->nullable();

@@ -12,7 +12,7 @@ class Cashback extends Model
      * @var array
      */
     protected $fillable = [
-        'amount','type','retailer_id'
+        'amount','amount_back','type','retailer_id'
     ];
 
     public function reatiler()

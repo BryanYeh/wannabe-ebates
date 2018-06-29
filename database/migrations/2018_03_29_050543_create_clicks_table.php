@@ -16,8 +16,8 @@ class CreateClicksTable extends Migration
         Schema::create('clicks', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('trip_number')->unique();
-            $table->unsignedInteger('type_id'); //can be either coupons_id or banners_id or retailer_id
-            $table->string('type'); //can be coupons,banners,retailer
+            $table->unsignedInteger('clickable_id'); //can be either coupons_id or banners_id or retailer_id
+            $table->string('clickable_type'); //can be coupons,banners,retailer
             $table->unsignedInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

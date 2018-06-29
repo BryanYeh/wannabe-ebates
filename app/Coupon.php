@@ -25,6 +25,8 @@ class Coupon extends Model
         'status'
     ];
 
+    protected $dates = ['start_date','end_date'];
+
     public function couponTypes()
     {
         return $this->belongsTo('App\CouponType');

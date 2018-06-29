@@ -29,12 +29,13 @@ class Retailer extends Model
         'store_of_week',
         'featured_store',
         'start_date',
-        'end_date'
+        'end_date',
+        'logo'
     ];
 
     public function cashbacks()
     {
-        return $this->hasMany('App\Cashback');
+        return $this->hasMany('App\Cashback')->latest();
     }
 
     public function banners()
@@ -60,5 +61,10 @@ class Retailer extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category')->withTimestamps();
+    }
+
+    public function clicks()
+    {
+        return $this->morphMany('App\Click', 'clickable');
     }
 }

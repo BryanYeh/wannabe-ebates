@@ -13,13 +13,18 @@ class Click extends Model
      */
     protected $fillable = [
         'trip_number',
-        'type_id',
-        'type',
+        'clickable_id',
+        'clickable_type',
         'user_id'
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function clickable()
+    {
+        return $this->morphTo();
     }
 }
