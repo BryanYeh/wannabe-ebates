@@ -14,7 +14,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PaymentStatusesTableSeeder::class,
             CouponTypesTableSeeder::class,
-            AffiliateNetworksTableSeeder::class
+            AffiliateNetworksTableSeeder::class,
         ]);
+        if(env('APP_ENV') == 'local'){
+                $this->call([
+                    FillerRetailers::class,
+                    FillerBanners::class,
+                    FillerCashbacks::class,
+                    FillerCategories::class,
+                    FillerCategoryRetailer::class,
+                    FillerCoupons::class
+                ]);
+            }
     }
 }
