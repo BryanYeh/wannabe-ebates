@@ -1,0 +1,387 @@
+/* --------------------- Shadow hover -------------------- */
+
+.shadow-hover:hover {
+    box-shadow: 0 8px 14px -6px rgba(153, 153, 153, .65);
+    -webkit-box-shadow: 0 8px 14px -6px rgba(153, 153, 153, .65);
+    -moz-box-shadow: 0 8px 14px -6px rgba(153, 153, 153, .65);
+}
+
+
+/* -------------------- Buttons -------------------- */
+
+
+/* Red Button */
+
+.btn-red {
+    background: #f00;
+    color: #fff;
+    border: none;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background: #f54;
+}
+
+
+/* Green Button */
+
+.btn-green {
+    background-color: #23ae4a;
+    color: #fff;
+    border: none;
+}
+
+.btn-green:hover {
+    background-color: #33bd5a;
+    color: #fff;
+}
+
+
+/* ------------------- Text Colors ----------------------- */
+
+
+/* Red Text */
+
+.c-red {
+    color: #f00;
+}
+
+
+/* Green Text */
+
+.c-green {
+    color: #23ae4a;
+}
+
+.c-white {
+    color: #fff;
+}
+
+
+/* ---------------------- Background Colors ----------------- */
+
+.bg-grey {
+    background-color: #f0f0f0;
+}
+
+.bg-green {
+    background-color: #23ae4a;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-lgrey {
+    background: #ebebeb;
+}
+
+.bg-grey-3 {
+    background: #333;
+}
+
+.bg-grey-6 {
+    background: #666;
+}
+
+
+/* ----------------- Font weight ---------------------------------- */
+
+.w-500 {
+    font-weight: 500;
+}
+
+.w-600{
+    font-weight: 600;
+}
+
+
+/* --------------------------- Font Size ------------------------ */
+
+.s-7 {
+    font-size: .7rem;
+}
+.s-15{
+    font-size: 1.5rem;
+}
+.s-20{
+    font-size: 2rem;
+}
+
+/* -------------------------- Padding Top ---------------------- */
+.pt-1-5{
+    padding-top: 1.5em;
+}
+/* ------------------------- Margin Bottom --------------------- */
+
+.m-b-1 {
+    margin-bottom: 1em;
+}
+
+
+/* -------------------------- Border Top ------------------------ */
+
+.top-green {
+    border-top: 2px solid #23ae4a;
+}
+
+
+/* ------------------------ Width ------------------------------- */
+
+.width-100 {
+    width: 100%;
+}
+
+
+/* ------------------------ Square Cards -------------------------- */
+
+.sqaure-cards .card {
+    text-align: center;
+    font-size: 10px;
+    height: 168px;
+    cursor: pointer;
+}
+
+.sqaure-cards .card-image {
+    padding-top: 1.5rem;
+}
+
+.sqaure-cards .image img {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sqaure-cards .card-content p {
+    margin-bottom: 0;
+}
+
+.sqaure-cards .card-content p:nth-child(2) {
+    color: #f00;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* -------------------------- Tall cards -------------------------- */
+
+.tall-cards .card-logo {
+    padding: 10px 10px 5px;
+    border: 1px #ccc solid;
+    background: #fff;
+    margin-top: -30px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.tall-cards .discount {
+    min-height: 48px;
+}
+
+
+/* -------------- Ad 300x250 ------------------------  */
+
+.ad-300-250 {
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+    margin-bottom: 10px;
+}
+
+.ad-300-250 p {
+    text-align: left;
+    color: #f00;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* ---------------------------------- Center images ----------------------- */
+.center-img{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----------------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------------- */
+
+.top-header,
+.topnav {
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* ---------------- Hero ---------------------------------- */
+
+.hero {
+    min-height: 500px;
+    background-repeat: no-repeat;
+}
+
+.hero .title {
+    color: #fff;
+    font-size: 3rem;
+}
+
+.hero .subtitle {
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.hero-form {
+    padding: 2.5rem;
+    background: #fff;
+    -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.75);
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+/* Social Login Button */
+
+.is-social {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.form-bonus {
+    color: #43aed1;
+    font-weight: 700;
+}
+
+.social-logo {
+    position: absolute;
+    left: 1rem;
+    top: .7rem;
+}
+
+.is-social.facebook-connect {
+    background: #3B5998;
+}
+
+.is-social.google-connect {
+    background: #d34836
+}
+
+.is-social:hover {
+    color: #fff;
+}
+
+.signup-title {
+    margin-bottom: 10px;
+}
+
+.reminder {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.join-now {
+    padding: 5rem 1.5rem;
+}
+
+.join-now .button {
+    color: #23ae4a;
+    padding: 1.25em 8em;
+}
+
+.panel-heading,
+.panel-block {
+    padding: 1em .75em;
+}
+
+.panel-block:first-child,
+.panel-heading:first-child,
+.panel-tabs:first-child {
+    border-radius: 0;
+}
+
+.navbar {
+    box-shadow: none;
+}
+
+.tooltip {
+    cursor: pointer;
+}
+
+.coupon-code {
+    margin-right: 20px;
+}
+
+.display-block {
+    display: block;
+}
+
+.discover-by-join .button {
+    padding: 1.5em 4em;
+    border: none;
+}
+
+.list-title {
+    color: #ababab;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* ---------------------------- Footer -------------------------------------------- */
+footer.footer a {
+    color: #fff;
+}
+
+.footer-content a {
+    font-size: .8em;
+}
+
+footer.footer a:hover {
+    color: #fff;
+}
+
+.footer-social-media li {
+    display: inline-block;
+    margin: .5em;
+}
+
+.footer-social-media a {
+    padding: 20px;
+    background: #ccc;
+    border-radius: 100%;
+    width: 4em;
+    height: 4em;
+    display: inline-block;
+    color: #333;
+}
+
+/* ---------------------- signin/register model -------------------------------- */
+#modal-join-form .modal-reminder {
+    font-size: 10px;
+}
+
+.modal.is-form .modal-card {
+    width: 350px;
+}
+
+.modal.is-form .modal-card-foot,
+.modal.is-form .modal-card-head {
+    border-radius: 0;
+}
+
+#modal-signin-form .modal-reminder {
+    font-size: 14px;
+}
+
+#switch-signin {
+    float: left;
+    font-size: 14px;
+}
+
+#modal-join-form .title {
+    font-size: 1.5rem;
+}
