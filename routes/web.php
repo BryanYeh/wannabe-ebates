@@ -11,11 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/store/view/{slug}', 'StoreController@index')->name('index');
+Route::get('/store/access/{slug}', 'StoreController@access')->name('store-access');
+Route::get('/store/access/{slug}/campaign/{uuid}', 'CouponController@access')->name('coupon-access');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard'); // display account info
+    Route::get('/balance', 'DashboardController@index')->name('balance'); // display current paycheck balance
+    Route::get('/withdrawal-history', 'DashboardController@index')->name('withdrawal-history'); // display withdrawal history
+    Route::get('/settings', 'DashboardController@index')->name('settings'); // display account settings
+    Route::get('/subsriptions', 'DashboardController@index')->name('subscriptions'); // display current subscriptions
 });
 
+
 Auth::routes();
+
+Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -25,3 +38,4 @@ Route::prefix('admin')->group(function() {
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');
+
