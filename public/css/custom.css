@@ -40,15 +40,9 @@
 
 /* ------------------- Text Colors ----------------------- */
 
-
-/* Red Text */
-
 .c-red {
     color: #f00;
 }
-
-
-/* Green Text */
 
 .c-green {
     color: #23ae4a;
@@ -58,6 +52,9 @@
     color: #fff;
 }
 
+.c-grey{
+    color: #666;
+}
 
 /* ---------------------- Background Colors ----------------- */
 
@@ -108,8 +105,16 @@
 .s-20{
     font-size: 2rem;
 }
-
-/* -------------------------- Padding Top ---------------------- */
+.s-125{
+    font-size: 1.125rem;
+}
+/* -------------------------- Padding ---------------------- */
+.p-1{
+    padding: 1em;
+}
+.p-10{
+    padding: 10%;
+}
 .pt-1-5{
     padding-top: 1.5em;
 }
@@ -125,7 +130,9 @@
 .top-green {
     border-top: 2px solid #23ae4a;
 }
-
+.border-grey{
+    border: 1px solid #cecece;
+}
 
 /* ------------------------ Width ------------------------------- */
 
@@ -384,4 +391,9 @@ footer.footer a:hover {
 
 #modal-join-form .title {
     font-size: 1.5rem;
+}
+
+.db-routes .dropdown-item{
+    font-size: 1em;
+    padding: 1rem;
 }
