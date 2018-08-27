@@ -40,11 +40,33 @@
                     
                 </div>
                 <div class="column">
-                    <div class="bg-white border-grey">
+                    <div class="bg-white border-grey m-b-1">
                         My Cashback Account
                     </div>
                     <div class="bg-white border-grey">
                         My Shopping Trips
+                        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                            <thead>
+                              <tr>
+                                <th>Trip Number</th>
+                                <th>Store</th>
+                                <th>Date Visited</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($clicks as $click)
+                                    <tr>
+                                        <td>{{ $click->trip_number}} </td>
+                                        <td><a href="{{ url("/store/view/{$click->clickable->retailer->slug}") }}">{{$click->clickable->retailer->name}}</a></td>
+                                        <td>{{ \Carbon\Carbon::parse($click->created_at)->format('m/d/Y')}}</td>
+                                    </tr>
+                                @endforeach
+                                @if ($total_clicks > 0)
+                                    <tr><td colspan="3"><a href="{{ route('trips') }}">View All Trips</a></td></tr>
+                                @endif
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>

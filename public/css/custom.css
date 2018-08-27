@@ -397,3 +397,7 @@ footer.footer a:hover {
     font-size: 1em;
     padding: 1rem;
 }
+
+.navbar{
+    z-index: auto;
+}

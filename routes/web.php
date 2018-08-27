@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/withdrawal-history', 'DashboardController@index')->name('withdrawal-history'); // display withdrawal history
     Route::get('/settings', 'DashboardController@index')->name('settings'); // display account settings
     Route::get('/subsriptions', 'DashboardController@index')->name('subscriptions'); // display current subscriptions
+    Route::get('/trips', 'DashboardController@index')->name('trips'); // display all trips
 });
 
 
