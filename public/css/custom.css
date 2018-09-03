@@ -82,6 +82,13 @@
     background: #666;
 }
 
+.bg-blue {
+    background : #3B5998;
+}
+
+.bg-red{
+    background: #f00;
+}
 
 /* ----------------- Font weight ---------------------------------- */
 
@@ -98,6 +105,9 @@
 
 .s-7 {
     font-size: .7rem;
+}
+.s-8{
+    font-size: .8rem;
 }
 .s-15{
     font-size: 1.5rem;
@@ -117,6 +127,9 @@
 }
 .pt-1-5{
     padding-top: 1.5em;
+}
+.p-25{
+    padding: 2.5rem;
 }
 /* ------------------------- Margin Bottom --------------------- */
 
