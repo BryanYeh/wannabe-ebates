@@ -19,10 +19,10 @@ Route::get('/store/access/{slug}/campaign/{uuid}', 'CouponController@access')->n
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard'); // display account info
     Route::get('/balance', 'DashboardController@index')->name('balance'); // display current paycheck balance
-    Route::get('/withdrawal-history', 'DashboardController@index')->name('withdrawal-history'); // display withdrawal history
+    Route::get('/withdrawal-history', 'DashboardController@withdrawal')->name('withdrawal-history'); // display withdrawal history
     Route::get('/settings', 'DashboardController@settings')->name('settings'); // display account settings
     Route::get('/subsriptions', 'DashboardController@index')->name('subscriptions'); // display current subscriptions
-    Route::get('/trips', 'DashboardController@index')->name('trips'); // display all trips
+    Route::get('/trips', 'DashboardController@trips')->name('trips'); // display all trips
 });
 
 

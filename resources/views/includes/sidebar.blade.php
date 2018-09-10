@@ -16,6 +16,9 @@
             <a href="{{ route('balance') }}" class="dropdown-item">
                 Balance
             </a>
+            <a href="{{ route('trips') }}" class="dropdown-item">
+                Shoppping Trips
+            </a>
             <a href="{{ route('withdrawal-history') }}" class="dropdown-item">
                 Withdrawal History
             </a>
