@@ -1,7 +1,10 @@
-## Wannabe Ebates
+# Wannabe Ebates
 
-Using Laravel and Bulma
+#### This is built with Laravel 5.6 and Bulma 0.7.0
 
-Work in progress
+<span style="color:red">**Warning**</span> : Work in progress
 
-Lots of todos and incompletes
+#### Current Database Structure
+![Cashback Database](https://raw.githubusercontent.com/BryanYeh/wannabe-ebates/master/cashback.png)
+
+## Progress & Todos
