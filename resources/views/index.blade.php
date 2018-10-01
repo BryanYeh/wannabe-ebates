@@ -4,6 +4,7 @@
     @php $page = 'index'; @endphp
 
 
+    @guest
     <!-- hero -->
     <section class="hero" style="background-image: url('https://picsum.photos/2000/500?image=0&blur');background-color:#fff;">
         <div class="hero-body">
@@ -44,7 +45,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- go to store -->
     <section class="section bg-white go-to-store">
         <div class="container">
@@ -101,6 +102,7 @@
             </div>
         </div>
     </section>
+    @endguest
 
     <!-- double cashback sqaure stores (cards) -->
     <section class="section sqaure-cards bg-lgrey">

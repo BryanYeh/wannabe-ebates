@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Click;
 use App\Payment;
+use App\PaymentStatus;
 use Auth;
 
 class DashboardController extends Controller
@@ -21,7 +22,8 @@ class DashboardController extends Controller
     public function withdrawal(Request $request)
     {
         $user_id = Auth::user()->id;
-        $payments = Payment::where('user_id',$user_id)->get();
+        $paymentId = PaymentStatus::where('slug', 'confirmed')->first()->id;
+        $payments = Payment::where('user_id',$user_id)->where('payment_status_id',$paymentId)->get();
         return view('dashboard/withdrawal',['payments' => $payments]);
     }
 
