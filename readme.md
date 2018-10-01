@@ -20,7 +20,7 @@ User Dashboard
 - [x] Dashboard
 - [ ] Balance
 - [x] Trips
-- [ ] Withdrawal History
+- [x] Withdrawal History
 - [ ] Settings
 - [ ] Subscriptions
 
