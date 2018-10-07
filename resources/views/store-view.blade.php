@@ -57,7 +57,7 @@
                 <div class="column">
                         <nav class="panel top-green bg-white">
                             <p class="panel-heading bg-white c-green w-500">
-                                Charlotte Russe Coupons, Promo Codes &amp; Cash Back
+                                {{$retailer->name}} Coupons, Promo Codes &amp; Cash Back
                             </p>
                             @foreach($coupons as $coupon)
                             <div class="panel-block display-block">

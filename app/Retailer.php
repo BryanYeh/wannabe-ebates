@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Retailer extends Model
 {
@@ -46,6 +47,11 @@ class Retailer extends Model
     public function coupons()
     {
         return $this->hasMany('App\Coupon');
+    }
+
+    public function activeCouponsCount()
+    {
+        return $this->hasMany('App\Coupon')->whereDate('start_date','<', Carbon::now())->whereDate('end_date','>', Carbon::now())->count();
     }
 
     public function payments()

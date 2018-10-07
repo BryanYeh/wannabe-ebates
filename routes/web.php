@@ -15,6 +15,7 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::get('/store/view/{slug}', 'StoreController@index')->name('index');
 Route::get('/store/access/{slug}', 'StoreController@access')->name('store-access');
 Route::get('/store/access/{slug}/campaign/{uuid}', 'CouponController@access')->name('coupon-access');
+Route::get('/stores','StoreController@show')->name('all-stores');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard'); // display account info

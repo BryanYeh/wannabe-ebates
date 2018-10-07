@@ -6,7 +6,7 @@
                 <div class="navbar-start">
                     <a class="navbar-item" href="{{ env('APP_URL') }}">Home</a>
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="/documentation/overview/start/">All Stores</a>
+                        <a class="navbar-link" href="{{ route('all-stores') }}">All Stores</a>
                         <div class="navbar-dropdown is-boxed">
                             <a class="navbar-item" href="{{ env('APP_URL') }}">Placeholder Store</a>
                             <a class="navbar-item" href="{{ env('APP_URL') }}">Placeholder Store</a>

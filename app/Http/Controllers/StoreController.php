@@ -7,6 +7,7 @@ use Illuminate\Support\Carbon;
 use App\Retailer;
 use App\Coupon;
 use App\Banner;
+use App\Category;
 use Illuminate\Support\Str;
 use App\Click;
 
@@ -45,5 +46,12 @@ class StoreController extends Controller
         }
         
         return view('accessing-store',['trip_number'=>$trip_number,'tracking_link'=>$retailer->tracking_link]);
+    }
+
+    public function show(Request $request)
+    {
+        $retailers = Retailer::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('position','asc')->get();
+        return view('stores',['retailers'=>$retailers,'categories'=>$categories]);
     }
 }
