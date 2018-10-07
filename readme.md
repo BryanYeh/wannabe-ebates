@@ -12,7 +12,7 @@
 
 Basic Viewing Functions
 - [x] Home Page
-- [ ] View All Stores
+- [x] View All Stores
 - [x] View Store Page
 - [x] Go To Store
 
