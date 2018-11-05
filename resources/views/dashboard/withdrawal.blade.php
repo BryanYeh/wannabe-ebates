@@ -23,6 +23,7 @@
                                     <th>Order Number</th>
                                     <th>Amount</th>
                                     <th>Cashback</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -33,6 +34,7 @@
                                             <td>Order Number</td>
                                             <td>${{ $payment->amount }}</>
                                             <td>Cashback</td>
+                                            <td>{{  $payment->paymentStatus->name }}
                                         </tr>
                                     @endforeach
                                 </tbody>

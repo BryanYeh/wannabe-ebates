@@ -22,8 +22,7 @@ class DashboardController extends Controller
     public function withdrawal(Request $request)
     {
         $user_id = Auth::user()->id;
-        $paymentId = PaymentStatus::where('slug', 'confirmed')->first()->id;
-        $payments = Payment::where('user_id',$user_id)->where('payment_status_id',$paymentId)->get();
+        $payments = Payment::where('user_id',$user_id)->get();
         return view('dashboard/withdrawal',['payments' => $payments]);
     }
 
