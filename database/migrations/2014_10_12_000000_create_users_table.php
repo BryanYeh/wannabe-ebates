@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();;
             $table->string('email')->unique();
             $table->string('password', 60)->nullable();
-            $table->string('provider');
-            $table->string('provider_id');
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
             $table->boolean('status')->default(false);
             $table->float('total_cashback', 8, 2)->default(0);
             $table->rememberToken();

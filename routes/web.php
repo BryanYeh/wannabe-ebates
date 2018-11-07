@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 Auth::routes();
 
+Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 

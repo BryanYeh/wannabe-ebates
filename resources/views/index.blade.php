@@ -24,16 +24,30 @@
                         <a href="{{ url('auth/google') }}"  class="button is-social google-connect is-medium"><i class="fab fa-google social-logo"></i> Connect with Google</a>
                         <p class="reminder">We’ll never post anything without your permission.</p>
                         <div class="is-divider" data-content="OR"></div>
-                        <form action="">
+                        <form class="register-form">
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" type="email" placeholder="Email">
+                                    <input class="input" type="text" placeholder="First Name" name="first_name">
                                 </div>
+                                <p class="help is-danger" id="first_name_error"></p>
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" type="password" placeholder="Password (6+ Characters)">
+                                    <input class="input" type="text" placeholder="Last Name" name="last_name">
                                 </div>
+                                <p class="help is-danger" id="last_name_error"></p>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" type="email" placeholder="Email" name="email">
+                                </div>
+                                <p class="help is-danger" id="email_error"></p>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" type="password" placeholder="Password (6+ Characters)" name="password">
+                                </div>
+                                <p class="help is-danger" id="password_error"></p>
                             </div>
                             <button class="button btn-green is-medium btn-join width-100" type="submit">Join Now</button>
                         </form>

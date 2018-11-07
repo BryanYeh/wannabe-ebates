@@ -28,16 +28,30 @@
                 <a href="{{ url('auth/google') }}" class="button is-social google-connect is-medium"><i class="fab fa-google social-logo"></i> Join with Google</a>
                 <p class="reminder">We’ll never post anything without your permission.</p>
                 <div class="is-divider" data-content="OR"></div>
-                <form action="">
+                <form class="register-form">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="email" placeholder="Email">
+                            <input class="input" type="text" placeholder="First Name" name="first_name">
                         </div>
+                        <p class="help is-danger" id="first_name_error"></p>
                     </div>
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="password" placeholder="Password (6+ Characters)">
+                            <input class="input" type="text" placeholder="Last Name" name="last_name">
                         </div>
+                        <p class="help is-danger" id="last_name_error"></p>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Email" name="email">
+                        </div>
+                        <p class="help is-danger" id="email_error"></p>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="password" placeholder="Password (6+ Characters)" name="password">
+                        </div>
+                        <p class="help is-danger" id="password_error"></p>
                     </div>
                     <button class="button btn-green is-medium wdith-100" type="submit">Join Now</button>
                 </form>
@@ -60,7 +74,7 @@
                     <a href="{{ url('auth/google') }}" class="button is-social google-connect is-medium"><i class="fab fa-google social-logo"></i> Join with Google</a>
                     <p class="reminder">We’ll never post anything without your permission.</p>
                     <div class="is-divider" data-content="OR"></div>
-                    <form action="">
+                    <form class="login-form">
                         <div class="field">
                             <div class="control">
                                 <input class="input" type="email" placeholder="Email">
@@ -197,6 +211,49 @@
             });
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.11.2/alertify.min.js"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $(".register-form").submit(function(e){
+            e.preventDefault();
+
+            var password = $("input[name=password]").val();
+            var email = $("input[name=email]").val();
+            var first_name = $("input[name=first_name]").val();
+            var last_name = $("input[name=last_name]").val();
+
+            $.ajax({
+                type:'POST',
+                url:'{{ route('register') }}',
+                data:{password:password, email:email, first_name:first_name,last_name:last_name},
+                success:function(data){
+                    //display success message
+                    //https://alertifyjs.com/alert.html
+                    alertify
+                        .alert("You have successfully created an account!", function(){
+                            window.location.replace("{{ route('dashboard') }}");
+                        });
+                },
+                error:function(data){
+                    $("#first_name_error").html('');
+                    $("#last_name_error").html('');
+                    $("#email_error").html('');
+                    $("#password_error").html('');
+
+                    var response = data.responseJSON;
+                    if(response['first_name']) $("#first_name_error").html(response['first_name'][0]);
+                    if(response['last_name']) $("#last_name_error").html(response['last_name'][0]);
+                    if(response['email']) $("#email_error").html(response['email'][0]);
+                    if(response['password']) $("#password_error").html(response['password'][0]);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
