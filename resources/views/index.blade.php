@@ -24,7 +24,7 @@
                         <a href="{{ url('auth/google') }}"  class="button is-social google-connect is-medium"><i class="fab fa-google social-logo"></i> Connect with Google</a>
                         <p class="reminder">We’ll never post anything without your permission.</p>
                         <div class="is-divider" data-content="OR"></div>
-                        <form class="register-form">
+                        <form class="register-form" id="modal-register">
                             <div class="field">
                                 <div class="control">
                                     <input class="input" type="text" placeholder="First Name" name="first_name">

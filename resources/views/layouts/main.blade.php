@@ -222,34 +222,33 @@
         $(".register-form").submit(function(e){
             e.preventDefault();
 
-            var password = $("input[name=password]").val();
-            var email = $("input[name=email]").val();
-            var first_name = $("input[name=first_name]").val();
-            var last_name = $("input[name=last_name]").val();
+            var form = $(this);
+            var formData = form.serialize();
 
             $.ajax({
                 type:'POST',
                 url:'{{ route('register') }}',
-                data:{password:password, email:email, first_name:first_name,last_name:last_name},
+                data: formData,
                 success:function(data){
                     //display success message
                     //https://alertifyjs.com/alert.html
+                    //alertify.alert(title, message, onok);
                     alertify
-                        .alert("You have successfully created an account!", function(){
+                        .alert("Account Creation","You have successfully created an account!", function(){
                             window.location.replace("{{ route('dashboard') }}");
                         });
                 },
                 error:function(data){
-                    $("#first_name_error").html('');
-                    $("#last_name_error").html('');
-                    $("#email_error").html('');
-                    $("#password_error").html('');
+                    form.children().children()[1].innerHTML = '';
+                    form.children().children()[3].innerHTML = '';
+                    form.children().children()[5].innerHTML = '';
+                    form.children().children()[7].innerHTML = '';
 
                     var response = data.responseJSON;
-                    if(response['first_name']) $("#first_name_error").html(response['first_name'][0]);
-                    if(response['last_name']) $("#last_name_error").html(response['last_name'][0]);
-                    if(response['email']) $("#email_error").html(response['email'][0]);
-                    if(response['password']) $("#password_error").html(response['password'][0]);
+                    if(response['first_name']) form.children().children()[1].innerHTML = response['first_name'][0];
+                    if(response['last_name']) form.children().children()[3].innerHTML = response['last_name'][0];
+                    if(response['email']) form.children().children()[5].innerHTML = response['email'][0];
+                    if(response['password']) form.children().children()[7].innerHTML = response['password'][0];
                 }
             });
         });
