@@ -25,7 +25,7 @@ User Dashboard
 - [ ] Subscriptions
 
 (Social) Signup/Login
-- [ ] Default
+- [x] Default
 - [x] Google+
 - [ ] Facebook
 

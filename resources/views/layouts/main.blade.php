@@ -77,15 +77,15 @@
                     <form class="login-form">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="email" placeholder="Email">
+                                <input class="input" type="email" placeholder="Email" name="email">
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="password" placeholder="Password (6+ Characters)">
+                                <input class="input" type="password" placeholder="Password (6+ Characters)" name="password">
                             </div>
                         </div>
-                        <button class="button btn-green is-medium width-100" type="submit">Join Now</button>
+                        <button class="button btn-green is-medium width-100" type="submit">Sign In</button>
                     </form>
                 </section>
                 <footer class="modal-card-foot">
@@ -232,7 +232,6 @@
                 success:function(data){
                     //display success message
                     //https://alertifyjs.com/alert.html
-                    //alertify.alert(title, message, onok);
                     alertify
                         .alert("Account Creation","You have successfully created an account!", function(){
                             window.location.replace("{{ route('dashboard') }}");
@@ -249,6 +248,27 @@
                     if(response['last_name']) form.children().children()[3].innerHTML = response['last_name'][0];
                     if(response['email']) form.children().children()[5].innerHTML = response['email'][0];
                     if(response['password']) form.children().children()[7].innerHTML = response['password'][0];
+                }
+            });
+        });
+    </script>
+    <script>
+        $(".login-form").submit(function(e){
+            e.preventDefault();
+
+            var form = $(this);
+            var formData = form.serialize();
+
+            $.ajax({
+                url:'{{ route('user.login') }}',
+                data: formData,
+                type: "POST",
+                success:function(data){
+                    window.location.replace("{{ route('dashboard') }}");
+                },
+                error:function(data){
+                    alertify
+                        .alert("Login Information","Invalid Login Credentials", function(){});
                 }
             });
         });
