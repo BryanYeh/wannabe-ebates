@@ -9,6 +9,7 @@ class AdminUser extends Authenticatable
     use Notifiable;
     
     protected $guard = 'admin';
+    protected $table = 'admin_users';
     
     /**
      * The attributes that are mass assignable.
