@@ -51,7 +51,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('logout/', 'Admin\Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::post('logout/', 'Admin\Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 }) ;
 
