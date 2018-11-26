@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Retailer;
+use App\Category;
+use App\Coupon;
 
 class AdminController extends Controller
 {
@@ -23,6 +27,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $members = User::count();
+        $stores = Retailer::count();
+        $categories = Category::count();
+        $coupons = Coupon::count();
+        return view('admin.dashboard',['members' => $members,'stores' => $stores,'categories'=> $categories,'coupons'=>$coupons]);
     }
 }

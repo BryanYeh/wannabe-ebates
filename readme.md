@@ -1,7 +1,7 @@
 # Wannabe Ebates
 ##### Not sure what this is? Take a look at Ebates.com, this is basically a cashback engine
 
-#### This is built with Laravel 5.6 and Bulma 0.7.0
+#### This is built with Laravel 5.6 and Bulma 0.7.0 for Users and CoreUi for Admin
 
 **Warning**: Work in progress
 
@@ -30,7 +30,7 @@ User Dashboard
 - [ ] Facebook
 
 Admin (Generic not going into explaination)
-- [ ] Admin Dashboard
+- [x] Admin Dashboard
 - [ ] Affliate Networks API
 - [ ] Simple Blog
 
