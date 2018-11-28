@@ -8,6 +8,8 @@ use App\User;
 use App\Retailer;
 use App\Category;
 use App\Coupon;
+use Carbon\Carbon;
+use DB;
 
 class AdminController extends Controller
 {
@@ -31,6 +33,17 @@ class AdminController extends Controller
         $stores = Retailer::count();
         $categories = Category::count();
         $coupons = Coupon::count();
-        return view('admin.dashboard',['members' => $members,'stores' => $stores,'categories'=> $categories,'coupons'=>$coupons]);
+        $membersYear = DB::table("users")
+	    ->select(DB::raw("MONTHNAME(created_at) as month,COUNT(*) as count"))
+        ->groupBy(DB::raw("month"))
+        ->whereYear('created_at',Carbon::now()->year)
+        ->get();
+        $arr = [];
+        foreach($membersYear as $month){
+            $arr[$month->month]=$month->count;
+        }
+        $registeredMember = (json_encode($arr));
+
+        return view('admin.dashboard',['members' => $members,'stores' => $stores,'categories'=> $categories,'coupons'=>$coupons,'registered'=>$registeredMember]);
     }
 }

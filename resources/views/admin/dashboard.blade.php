@@ -3,17 +3,23 @@
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script>
+        var count = {!! $registered !!};
+        var labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'];
+        var data = [];
+        labels.forEach(month => {data.push(count.hasOwnProperty(month) ? count[month] : 0);});
+        
+        //TODO: MOVE chart creation into JS file
         var lineChart = new Chart($('#members'), {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'],
+                labels: labels,
                 datasets: [{
                     label: 'Registered Users by Month',
                     backgroundColor: 'rgba(220, 220, 220, 0.2)',
                     borderColor: 'rgba(220, 220, 220, 1)',
                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                     pointBorderColor: '#fff',
-                    data: [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()]
+                    data: data
                 }]
             },
             options: {
