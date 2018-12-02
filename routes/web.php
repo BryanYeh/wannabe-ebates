@@ -53,6 +53,13 @@ Route::prefix('admin')->group(function() {
     Route::post('/login', 'Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::post('logout/', 'Admin\Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+
+    Route::get('/members', 'Admin\MembersController@members')->name('admin.members');
+    Route::get('/members-list', 'Admin\MembersController@membersList')->name('admin.members.list');
+    Route::get('/members/remove/{user}', 'Admin\MembersController@remove')->name('admin.member.remove');
+    Route::get('/members/view/{user}', 'Admin\MembersController@remove')->name('admin.member.view');
+    Route::get('/members/edit/{user}', 'Admin\MembersController@remove')->name('admin.member.edit');
+    Route::post('/members/edit/{user}', 'Admin\MembersController@remove')->name('admin.member.save');
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');

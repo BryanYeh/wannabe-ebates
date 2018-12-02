@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="card-footer px-3 py-2">
-                <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="#">
+                <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="{{ route('admin.members') }}">
                     <span class="small font-weight-bold">View Members</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
