@@ -57,7 +57,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/members', 'Admin\MembersController@members')->name('admin.members');
     Route::get('/members-list', 'Admin\MembersController@membersList')->name('admin.members.list');
     Route::get('/members/remove/{user}', 'Admin\MembersController@remove')->name('admin.member.remove');
-    Route::get('/members/view/{user}', 'Admin\MembersController@remove')->name('admin.member.view');
+    Route::get('/members/view/{user}', 'Admin\MembersController@view')->name('admin.member.view');
     Route::get('/members/edit/{user}', 'Admin\MembersController@remove')->name('admin.member.edit');
     Route::post('/members/edit/{user}', 'Admin\MembersController@remove')->name('admin.member.save');
 }) ;

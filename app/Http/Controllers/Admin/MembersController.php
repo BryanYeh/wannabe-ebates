@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use DB;
 use Datatables;
 use Hashids;
+use App\Click;
 
 class MembersController extends Controller
 {
@@ -38,7 +39,7 @@ class MembersController extends Controller
             ->addColumn('action', function ($user) {
                 return '<a href="'.route("admin.member.edit",["user"=>Hashids::encode($user->id)]).'" class="btn btn-xs btn-primary"><i class="nav-icon icon-note"></i> Edit</a>
                 <a href="'.route("admin.member.view",["user"=>Hashids::encode($user->id)]).'" class="btn btn-xs btn-primary"><i class="nav-icon icon-magnifier"></i> View</a>
-                <a href="'.route("admin.member.remove",["user"=>Hashids::encode($user->id)]).'" class="btn btn-xs btn-primary"><i class="nav-icon icon-trash"></i> Remove</a>';
+                <a href="'.route("admin.member.remove",["user"=>Hashids::encode($user->id)]).'" class="btn btn-xs btn-danger"><i class="nav-icon icon-trash"></i> Remove</a>';
             })
             ->editColumn('name', '{{$first_name}} {{$last_name}}')
             ->editColumn('registered_at','{{ Carbon\Carbon::parse($created_at)->format("M d,Y") }}')
@@ -51,9 +52,12 @@ class MembersController extends Controller
         dd(Hashids::decode($request->user));
     }
 
-    public function view()
+    public function view(Request $request)
     {
-        dd(Hashids::decode($request->user));
+        $user_id = Hashids::decode($request->user);
+        $user = User::where('id', $user_id)->firstOrFail();
+        $clicks = Click::where('user_id',$user_id)->orderBy('created_at','DESC')->get();
+        return view('admin.member-view',['user'=>$user,'clicks'=>$clicks]);
     }
 
     public function edit()
