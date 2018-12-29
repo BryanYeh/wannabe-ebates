@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-3">
+    <div class="col-md-3">
         <div class="card">
             <div class="card-body p-3 text-center">
                 <img class="img-avatar mr-4" src="https://api.adorable.io/avatars/100/{{ str_slug($user->first_name. ' '.$user->last_name) }}.png" alt="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}">

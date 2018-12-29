@@ -60,8 +60,10 @@ class MembersController extends Controller
         return view('admin.member-view',['user'=>$user,'clicks'=>$clicks]);
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-        dd(Hashids::decode($request->user));
+        $user_id = Hashids::decode($request->user);
+        $user = User::where('id', $user_id)->firstOrFail();
+        return view('admin.member-edit',['user'=>$user]);
     }
 }
