@@ -13,6 +13,7 @@ use DB;
 use Datatables;
 use Hashids;
 use App\Click;
+use Validator;
 
 class MembersController extends Controller
 {
@@ -64,6 +65,32 @@ class MembersController extends Controller
     {
         $user_id = Hashids::decode($request->user);
         $user = User::where('id', $user_id)->firstOrFail();
+        return view('admin.member-edit',['user'=>$user]);
+    }
+
+    public function update(Request $request)
+    {
+        $user_id = Hashids::decode($request->user);
+        $user = User::where('id', $user_id)->firstOrFail();
+
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('admin.member.edit',['user'=>$request->user])
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->status = $request->has('status');
+        $user->save();
+
         return view('admin.member-edit',['user'=>$user]);
     }
 }

@@ -59,7 +59,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/members/remove/{user}', 'Admin\MembersController@remove')->name('admin.member.remove');
     Route::get('/members/view/{user}', 'Admin\MembersController@view')->name('admin.member.view');
     Route::get('/members/edit/{user}', 'Admin\MembersController@edit')->name('admin.member.edit');
-    Route::post('/members/edit/{user}', 'Admin\MembersController@remove')->name('admin.member.save');
+    Route::post('/members/edit/{user}', 'Admin\MembersController@update')->name('admin.member.update');
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');

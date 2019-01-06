@@ -8,25 +8,29 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card">
-            <form action="">
+            <form action="{{ route('admin.member.update',['user' => Hashids::encode($user->id)]) }}" method="POST">
                 <div class="card-header">Edit Member</div>
                 <div class="card-body">
+                        @csrf
                         <div class="form-group">
                             <label for="first_name">First Name</label>
-                            <input class="form-control" id="first_name" type="text" value="{{ $user->first_name }}">
+                            <input class="form-control @if($errors->has('first_name')) is-invalid @endif" id="first_name" type="text" name="first_name" value="@if($errors->has('first_name')){{ old('first_name') }}@else{{ $user->first_name }}@endif">
+                            @if($errors->has('first_name')) <div class="invalid-feedback">{{ $errors->first('first_name') }}</div> @endif
                         </div>
                         <div class="form-group">
                             <label for="last_name">Last Name</label>
-                            <input class="form-control" id="last_name" type="text" value="{{ $user->last_name }}">
+                            <input class="form-control @if($errors->has('last_name')) is-invalid @endif" id="last_name" type="text" name="last_name" value="@if($errors->has('last_name')){{ old('last_name') }}@else{{ $user->last_name }}@endif">
+                            @if($errors->has('last_name')) <div class="invalid-feedback">{{ $errors->first('last_name') }}</div> @endif
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input class="form-control" id="email" type="email" value="{{ $user->email }}">
+                            <input class="form-control @if($errors->has('email')) is-invalid @endif" id="email" type="email" name="email" value="@if($errors->has('email')){{ old('email') }}@else{{ $user->email }}@endif">
+                            @if($errors->has('email')) <div class="invalid-feedback">{{ $errors->first('email') }}</div> @endif
                         </div>
                         <div class="form-group">
-                            <label for="password">Reset Password</label>
+                            <label for="password">Reset Password <small>(Currently doesn't do anything)</small></label>
                             <div>
-                                <button class="btn btn-sm btn-primary" type="button">
+                                <button class="btn btn-sm btn-primary" type="button" disabled >
                                 <i class="fa fa-paper-plane"></i> Send Password Reset to Email</button>
                             </div>
                         </div>
@@ -34,7 +38,7 @@
                             <label class="col-md-2 col-form-label">Status</label>
                             <div class="col-md-10 col-form-label">
                                 <div class="form-check checkbox">
-                                    <input class="form-check-input" id="status" type="checkbox" {{ $user->status ? "checked" : ""}}>
+                                    <input class="form-check-input" id="status" name="status" type="checkbox" {{ $user->status ? "checked" : ""}}>
                                     <label class="form-check-label" for="status">Enable</label>
                                 </div>
                             </div>
