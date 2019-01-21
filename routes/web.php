@@ -60,6 +60,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/members/view/{user}', 'Admin\MembersController@view')->name('admin.member.view');
     Route::get('/members/edit/{user}', 'Admin\MembersController@edit')->name('admin.member.edit');
     Route::post('/members/edit/{user}', 'Admin\MembersController@update')->name('admin.member.update');
+
+    Route::get('/retailers', 'Admin\RetailersController@retailers')->name('admin.retailers');
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');
