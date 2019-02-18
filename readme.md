@@ -46,7 +46,7 @@ Future Things
 3. Run ```composer install```
 4. Rename or copy **.env.example** to **.env**
 5. Run ```php artisan key:generate```
-6. Have **DB_** and **GOOGLE_** filled out in the **.env**
+6. Have **DB_** and **GOOGLE_** and **HASH_ID_SALT** filled out in the **.env**
 7. Create an empty database with what you have on **DB_DATABASE**
 8. Run ```php artisan migrate --seed``` (The seed will populate the necessary tables AND sample data also)
 9. Everything is set up and ready to test!
