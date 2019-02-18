@@ -54,4 +54,12 @@ class StoreController extends Controller
         $categories = Category::orderBy('position','asc')->get();
         return view('stores',['retailers'=>$retailers,'categories'=>$categories]);
     }
+
+    public function filter(Request $request)
+    {
+        $category = Category::where('slug', $request->slug)->firstOrFail();
+        $retailers = $category->retailers()->get()->sortBy('name');
+        $categories = Category::orderBy('position','desc')->get();
+        return view('stores',['retailers'=>$retailers,'categories'=>$categories,'current_category'=>$category->name]);
+    }
 }

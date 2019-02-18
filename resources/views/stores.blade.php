@@ -15,7 +15,7 @@
                             <p>Categories</p>
                             @foreach($categories as $category)
                             <ul class="db-routes">
-                                <a href="#" class="dropdown-item">
+                                <a href="{{ route('stores.filter', ['slug' => $category->slug]) }}" class="dropdown-item">
                                     {{$category->name}}
                                 </a>
                             </ul>
@@ -26,7 +26,7 @@
                 <div class="column">
                     <nav class="panel top-green bg-white">
                         <p class="panel-heading bg-white c-green w-500">
-                            All Stores
+                            @if(isset($current_category)) {{ $current_category }} @else All Stores @endif
                         </p>
                         @foreach($retailers as $retailer)
                         <div class="panel-block display-block">
@@ -41,7 +41,7 @@
                                     {{$retailer->cashbacks->first()->amount}}% Cashback
                                 </div>
                                 <div class="column has-text-centered">
-                                    <a rel="nofollow" target="_blank" href='{{url("/store/view/{$retailer->slug}")}}' class="button btn-red">Shop Now</a>
+                                    <a rel="nofollow" target="_blank" href='{{ route("store-view",["slug"=>$retailer->slug]) }}' class="button btn-red">Shop Now</a>
                                 </div>
                             </div>
                         </div>
