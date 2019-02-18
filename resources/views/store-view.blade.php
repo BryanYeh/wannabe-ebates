@@ -17,7 +17,7 @@
                             <div class="content">
                                 <p class="c-red s-20 w-600">{{$retailer->cashbacks->first()->amount}}% Cashback</p>
                                 <p>
-                                    <a rel="nofollow" target="_blank" href="{{url("/store/access/{$retailer->slug}")}}" class="button btn-red width-100" title="Activate Cashback at {{$retailer->name}}">Shop Now</a>
+                                    <a rel="nofollow" target="_blank" href="{{ route('store-access',['slug'=>$retailer->slug]) }}" class="button btn-red width-100" title="Activate Cashback at {{$retailer->name}}">Shop Now</a>
                                 </p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                                         
                                     </div>
                                     <div class="column has-text-centered">
-                                        <a rel="nofollow" target="_blank" href='{{url("/store/access/{$coupon->retailer->slug}/campaign/{$coupon->uuid}")}}' class="button btn-red">Shop Now</a>
+                                        <a rel="nofollow" target="_blank" href='{{ route("coupon-access",["slug"=>$coupon->retailer->slug,"uuid"=>$coupon->uuid]) }}' class="button btn-red">Shop Now</a>
                                     </div>
                                 </div>
                             </div>

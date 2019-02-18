@@ -167,7 +167,7 @@
                                 <p class="c-red w-500">{{$store->cashbacks->first()->amount}}% Cash Back</p>
                                 <p class="discount w-500">{{$store->coupons->first()->first()->title}}</p>
                                 <p class="s-7"><i class="far fa-clock"></i> Expires {{$store->coupons->first()->end_date->format('m/d/Y')}}</p>
-                                <a href='{{url("/store/access/{$store->slug}/campaign/{$store->coupons->first()->uuid}")}}' class="button btn-red">Shop Now</a>
+                                <a href='{{ route("coupon-access",["slug"=>$store->slug,"uuid"=>$store->coupons->first()->uuid]) }}' class="button btn-red">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                                     <i class="far fa-clock"></i> Expires {{$coupon->first()->end_date->format('m/d/Y')}}</p>
                                 </div>
                                 <div class="column has-text-centered">
-                                    <a href='{{url("/store/access/{$coupon->retailer->slug}/campaign/{$coupon->uuid}")}}' class="button btn-red">Shop Now</a>
+                                    <a href='{{ route("coupon-access",["slug"=>$coupon->retailer->slug,"uuid"=>$coupon->uuid]) }}' class="button btn-red">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                     </nav>
                     @foreach($ads300x250 as $ad)
                     <div class="ad-300-250">
-                        <a href="{{url("/store/access/{$ad->retailer->slug}/campaign/{$ad->uuid}")}}">
+                        <a href="{{ route('coupon-access',['slug'=>$ad->retailer->slug,'uuid'=>$ad->uuid]) }}">
                             <img src="{{$ad->image}}" alt="{{$ad->title}}" title="{{$ad->title}}">
                             <p>Shop {{$ad->retailer->name}} with {{$ad->retailer->cashbacks->first()->amount}}% Cash Back </p>
                         </a>
