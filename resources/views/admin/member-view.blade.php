@@ -4,6 +4,36 @@
 
 @section('page')View Member @endsection
 
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.11.2/css/alertify.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/default.min.css">
+@endpush
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.11.2/alertify.min.js"></script>
+<script>
+$('#sendPasswordResetEmail').click(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "{{ route('admin.member.password.reset') }}",
+        method: 'post',
+        data: {
+            email: "{{ $user->email }}"
+        },
+        success: function(result){
+            //display success message
+            //https://alertifyjs.com/alert.html
+            alertify.alert('Email Sent!', 'Password reset email was sent to {{ $user->first_name }} {{ $user->last_name }}');
+        }
+    });
+});
+</script>
+@endpush
+
 @section('content')
 <div class="row">
     <div class="col-md-3">
@@ -29,7 +59,12 @@
             <div class="card-header">Configuration</div>
             <div class="card-body">
                 <div>
-                    <div class="text-muted"><a href='{{ route("admin.member.edit",["user"=>Hashids::encode($user->id)]) }} '>Edit</a></div>
+                    <div class="text-muted">
+                        <p><a href='{{ route("admin.member.edit",["user"=>Hashids::encode($user->id)]) }} '>Edit</a></p>
+                        <p>
+                            <button class="btn btn-sm btn-primary" id="sendPasswordResetEmail">Send Password Reset</button>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,7 +86,7 @@
                         @foreach ($clicks as $click)
                             <tr>
                                 <td>{{ \Carbon\Carbon::parse($click->created_at)->format('n/j/y')}}</td>
-                                <td><a href="{{ url("/store/view/{$click->clickable->retailer->slug}") }}">{{$click->clickable->retailer->name}}</a></td>
+                                <td><a href="{{ url('/store/view/{$click->clickable->retailer->slug}') }}">{{$click->clickable->retailer->name}}</a></td>
                                 <td></td>
                                 <td>{{ $click->trip_number}} </td>
                             </tr>

@@ -27,13 +27,6 @@
                             <input class="form-control @if($errors->has('email')) is-invalid @endif" id="email" type="email" name="email" value="@if($errors->has('email')){{ old('email') }}@else{{ $user->email }}@endif">
                             @if($errors->has('email')) <div class="invalid-feedback">{{ $errors->first('email') }}</div> @endif
                         </div>
-                        <div class="form-group">
-                            <label for="password">Reset Password <small>(Currently doesn't do anything)</small></label>
-                            <div>
-                                <button class="btn btn-sm btn-primary" type="button" disabled >
-                                <i class="fa fa-paper-plane"></i> Send Password Reset to Email</button>
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Status</label>
                             <div class="col-md-10 col-form-label">

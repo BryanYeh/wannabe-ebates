@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" />
     @stack('css')
     <title>Hello, world!</title>
+
+    <meta name="_token" content="{{csrf_token()}}" />
   </head>
   <body class="@yield('bodyClass')">
 

@@ -39,10 +39,10 @@ $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 // $this->post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
-// $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 // $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-// $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-// $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
  
 Route::post('/login', 'Auth\LoginController@loginAjax')->name('user.login');
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
@@ -61,6 +61,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/members/view/{user}', 'Admin\MembersController@view')->name('admin.member.view');
     Route::get('/members/edit/{user}', 'Admin\MembersController@edit')->name('admin.member.edit');
     Route::post('/members/edit/{user}', 'Admin\MembersController@update')->name('admin.member.update');
+    Route::post('/members/password/reset', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.member.password.reset');
 
     Route::get('/retailers', 'Admin\RetailersController@retailers')->name('admin.retailers');
 }) ;
