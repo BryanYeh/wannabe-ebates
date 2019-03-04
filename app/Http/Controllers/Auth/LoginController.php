@@ -56,4 +56,16 @@ class LoginController extends Controller
         // if unsuccessful, then redirect back to the login with the form data
         return response()->json(['error' => 'Unauthenticated.'],401);//redirect()->back()->withInput($request->only('email', 'remember'));
     }
+
+        /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        return redirect()->route('index');
+    }
 }
