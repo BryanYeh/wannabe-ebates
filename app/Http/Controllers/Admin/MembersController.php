@@ -29,7 +29,9 @@ class MembersController extends Controller
 
     public function members()
     {
-        return view('admin.members');
+        $users = User::select(['id', 'first_name', 'last_name', 'email','total_cashback', 'created_at'])->paginate(5);
+        
+        return view('admin.members',['members'=>$users]);
     }
 
     public function membersList()
@@ -50,7 +52,14 @@ class MembersController extends Controller
 
     public function remove(Request $request)
     {
-        dd(Hashids::decode($request->user));
+        $user_id = Hashids::decode($request->user);
+        $user = User::where('id', $user_id)->firstOrFail();
+        if($user->delete()){
+            return redirect()->route('admin.members')
+                ->with('status', 'success');
+        }
+        return redirect()->route('admin.members')
+            ->with('status', 'error');
     }
 
     public function view(Request $request)

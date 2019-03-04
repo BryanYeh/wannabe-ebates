@@ -146,7 +146,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        yajra\Datatables\DatatablesServiceProvider::class,
         
         /*
          * Package Service Providers...
