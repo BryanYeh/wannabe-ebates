@@ -58,7 +58,8 @@ class AuthController extends Controller
             'last_name'     => $provider=='google' ? $user->user['name']['familyName']:  $user->last_name,
             'email'    => $user->email,
             'provider' => $provider,
-            'provider_id' => $user->id
+            'provider_id' => $user->id,
+            'status' => true
         ]);
     }
 }
