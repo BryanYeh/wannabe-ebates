@@ -2,7 +2,7 @@
     <nav class="sidebar-nav ps ps--active-y">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="{{ route('admin.dashboard')}}">
+                <a class="nav-link" href="{{ route('admin.dashboard')}}">
                     <i class="nav-icon icon-speedometer"></i> Dashboard
                 </a>
             </li>

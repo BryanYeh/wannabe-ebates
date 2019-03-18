@@ -37,8 +37,9 @@
                             <td>@if($retailer->status) <i class="far fa-check-square"></i> @else <i class="far fa-square"></i> @endif</td>
                             <td>{{ Carbon\Carbon::parse($retailer->created_at)->format("M d,Y") }}</td>
                             <td>
-                                <a href="#" class="btn btn-xs btn-primary"><i class="nav-icon icon-note"></i> Edit</a>
-                                <a href="#" class="btn btn-xs btn-danger"><i class="nav-icon icon-trash"></i> Remove</a>
+                                <a href="{{ route('admin.retailer.edit',['reatailer' => $retailer->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-note"></i> Edit</a>
+                                <a href="{{ route('admin.retailer.view',['reatailer' => $retailer->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-magnifier"></i> View</a>
+                                <a href="{{ route('admin.retailer.remove',['reatailer' => $retailer->slug ]) }}" class="btn btn-xs btn-danger"><i class="nav-icon icon-trash"></i> Remove</a>
                             </td>
                         </tr>                            
                         @endforeach
