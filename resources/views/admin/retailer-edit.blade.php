@@ -50,9 +50,15 @@
                             <input class="form-control" id="website" type="text" name="website" placeholder="Website Link" value="{{ $retailer->website }}">
                         </div>
                     </div>
-
-                    <p><strong>Logo</strong>: {{ $retailer->logo }}</p>
-
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="logo">Logo</label>
+                        <div class="col-md-10">
+                            <p><h5>Current Logo</h5></p>
+                            <img src="{{ url('images/'.$retailer->logo) }}" alt="logo">
+                            <p><h5>Upload New Logo</h5></p>
+                            <input id="logo" type="file" name="logo">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="tracking-link">Tracking Link</label>
                         <div class="col-md-10">
