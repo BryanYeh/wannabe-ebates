@@ -104,8 +104,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <p><strong>Affiliate Network</strong>: {{ $retailer->affiliateNetwork->name }}</p>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="affiliate_network">Affiliate Network</label>
                         <div class="col-md-10">
@@ -137,7 +135,7 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="name">SEO Name</label>
                         <div class="col-md-10">
-                            <input class="form-control" id="name" type="text" name="seo_name" placeholder="seo-name" value="{{ $retailer->seo_name }}">
+                            <input class="form-control" id="name" type="text" name="seo_name" placeholder="seo-name" value="{{ $retailer->seo_title }}">
                         </div>
                     </div>
                     <div class="form-group row">
