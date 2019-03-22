@@ -96,8 +96,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label">Status</label>
-                        <div class="col-md-9 col-form-label">
+                        <label class="col-md-2 col-form-label">Status</label>
+                        <div class="col-md-10 col-form-label">
                             <div class="form-check checkbox">
                                 <input class="form-check-input" id="status" type="checkbox" value="" {{ $retailer->status ? 'checked' : '' }}>
                                 <label class="form-check-label" for="status" googl="true">Active</label>
@@ -107,8 +107,8 @@
                     
                     <p><strong>Affiliate Network</strong>: {{ $retailer->affiliateNetwork->name }}</p>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="affiliate_network">Affiliate Network</label>
-                        <div class="col-md-9">
+                        <label class="col-md-2 col-form-label" for="affiliate_network">Affiliate Network</label>
+                        <div class="col-md-10">
                             <select class="form-control" id="affiliate_network" name="affiliate_network" googl="true">
                                 @foreach($affiliate_networks as $affiliate_network)
                                 <option value="{{ $affiliate_network->id }}" {{ $retailer->affiliateNetwork->id == $affiliate_network->id ? 'selected' : '' }}>{{ $affiliate_network->name }}</option>
@@ -117,8 +117,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label">Store of Week</label>
-                        <div class="col-md-9 col-form-label">
+                        <label class="col-md-2 col-form-label">Store of Week</label>
+                        <div class="col-md-10 col-form-label">
                             <div class="form-check checkbox">
                                 <input class="form-check-input" id="store_of_week" type="checkbox" value="" {{ $retailer->store_of_week ? 'checked' : '' }}>
                                 <label class="form-check-label" for="store_of_week" googl="true">Yes</label>
@@ -126,8 +126,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label">Featured Store</label>
-                        <div class="col-md-9 col-form-label">
+                        <label class="col-md-2 col-form-label">Featured Store</label>
+                        <div class="col-md-10 col-form-label">
                             <div class="form-check checkbox">
                                 <input class="form-check-input" id="featured_store" type="checkbox" value="" {{ $retailer->featured_store ? 'checked' : '' }}>
                                 <label class="form-check-label" for="featured_store" googl="true">Yes</label>
