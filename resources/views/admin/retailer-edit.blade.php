@@ -34,10 +34,16 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-12">
+    @if (session()->has('message'))
+        <div class="alert alert-info">
+            {{ session('message') }}
+        </div>
+    @endif
         <div class="card">
-            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{ route('admin.retailer.update',['reatailer' => $retailer->slug ]) }}" method="post" enctype="multipart/form-data">
                 <div class="card-header">Edit Retailer</div>
                 <div class="card-body">
+                    @csrf
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="name">Name</label>
                         <div class="col-md-10">
@@ -60,9 +66,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="tracking-link">Tracking Link</label>
+                        <label class="col-md-2 col-form-label" for="tracking_link">Tracking Link</label>
                         <div class="col-md-10">
-                            <input class="form-control" id="tracking-link" type="text" name="tracking-link" placeholder="Tracking Link" value="{{ $retailer->tracking_link }}">
+                            <input class="form-control" id="tracking_link" type="text" name="tracking_link" placeholder="Tracking Link" value="{{ $retailer->tracking_link }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -74,13 +80,13 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="description">Description</label>
                         <div class="col-md-10">
-                            <textarea id="description">{!! $retailer->description !!}</textarea>
+                            <textarea name="description" id="description">{!! $retailer->description !!}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="conditions">Conditions</label>
                         <div class="col-md-10">
-                            <textarea id="conditions">{!! $retailer->conditions !!}</textarea>
+                            <textarea name="conditions" id="conditions">{!! $retailer->conditions !!}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -105,7 +111,7 @@
                         <label class="col-md-2 col-form-label">Status</label>
                         <div class="col-md-10 col-form-label">
                             <div class="form-check checkbox">
-                                <input class="form-check-input" id="status" type="checkbox" value="" {{ $retailer->status ? 'checked' : '' }}>
+                                <input class="form-check-input" id="status" name="status" type="checkbox" value="" {{ $retailer->status ? 'checked' : '' }}>
                                 <label class="form-check-label" for="status" googl="true">Active</label>
                             </div>
                         </div>
@@ -124,7 +130,7 @@
                         <label class="col-md-2 col-form-label">Store of Week</label>
                         <div class="col-md-10 col-form-label">
                             <div class="form-check checkbox">
-                                <input class="form-check-input" id="store_of_week" type="checkbox" value="" {{ $retailer->store_of_week ? 'checked' : '' }}>
+                                <input class="form-check-input" name="store_of_week" id="store_of_week" type="checkbox" value="" {{ $retailer->store_of_week ? 'checked' : '' }}>
                                 <label class="form-check-label" for="store_of_week" googl="true">Yes</label>
                             </div>
                         </div>
@@ -133,15 +139,15 @@
                         <label class="col-md-2 col-form-label">Featured Store</label>
                         <div class="col-md-10 col-form-label">
                             <div class="form-check checkbox">
-                                <input class="form-check-input" id="featured_store" type="checkbox" value="" {{ $retailer->featured_store ? 'checked' : '' }}>
+                                <input class="form-check-input" name="featured_store" id="featured_store" type="checkbox" value="" {{ $retailer->featured_store ? 'checked' : '' }}>
                                 <label class="form-check-label" for="featured_store" googl="true">Yes</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="name">SEO Name</label>
+                        <label class="col-md-2 col-form-label" for="seo_title">SEO Title</label>
                         <div class="col-md-10">
-                            <input class="form-control" id="name" type="text" name="seo_name" placeholder="seo-name" value="{{ $retailer->seo_title }}">
+                            <input class="form-control" id="seo_title" type="text" name="seo_title" placeholder="seo-name" value="{{ $retailer->seo_title }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -158,7 +164,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('admin.retailer.edit',['reatailer' => $retailer->slug ]) }}" class="btn btn-sm btn-primary">Edit</a>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
