@@ -89,7 +89,7 @@ class RetailersController extends Controller
         $retailer->meta_keywords = strip_tags($request->meta_keywords);
         $retailer->start_date = $request->start_date;
         $retailer->end_date = $request->end_date;
-        $retailer->status = $request->has('request->status');
+        $retailer->status = $request->has('status');
         $retailer->affiliate_network_id = $request->affiliate_network;
         $retailer->store_of_week = $request->has('store_of_week');
         $retailer->featured_store = $request->has('featured_store');
