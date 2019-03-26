@@ -129,7 +129,7 @@
                         <div class="card shadow-hover">
                             <div class="card-image">
                                 <figure class="image">
-                                    <img src="https://static.ebates.com/image/store/icon/8318/icon-100x27.gif" alt="{{$store->name}}" title="{{$store->name}}">
+                                    <img src="{{ url('images/'.$store->logo) }}" alt="{{$store->name}}" title="{{$store->name}}">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -160,7 +160,7 @@
                             </figure>
                         </div>
                         <div class="card-logo">
-                            <img src="{{$store->logo}}" alt="{{$store->name}}" title="{{$store->name}}">
+                            <img src="{{ url('images/'.$store->logo) }}" alt="{{$store->name}}" title="{{$store->name}}">
                         </div>
                         <div class="card-content">
                             <div class="content">
@@ -191,7 +191,7 @@
                         <div class="panel-block display-block">
                             <div class="columns is-vcentered">
                                 <div class="column is-3 has-text-centered">
-                                    <img src="{{$coupon->retailer->logo}}" alt="{{$coupon->retailer->name}}" title="{{$coupon->retailer->name}}">
+                                    <img src="{{ url('images/'.$coupon->retailer->logo) }}" alt="{{$coupon->retailer->name}}" title="{{$coupon->retailer->name}}">
                                 </div>
                                 <div class="column is-7">
                                     <h2 class="is-size-5 w-500">{{$coupon->title}} <span class="c-red is-size-6">+ Up to {{$coupon->retailer->cashbacks->first()->amount}}% Cash Back</span></h2>
