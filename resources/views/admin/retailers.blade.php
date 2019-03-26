@@ -39,7 +39,6 @@
                             <td>
                                 <a href="{{ route('admin.retailer.edit',['reatailer' => $retailer->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-note"></i> Edit</a>
                                 <a href="{{ route('admin.retailer.view',['reatailer' => $retailer->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-magnifier"></i> View</a>
-                                <a href="{{ route('admin.retailer.remove',['reatailer' => $retailer->slug ]) }}" class="btn btn-xs btn-danger"><i class="nav-icon icon-trash"></i> Remove</a>
                             </td>
                         </tr>                            
                         @endforeach

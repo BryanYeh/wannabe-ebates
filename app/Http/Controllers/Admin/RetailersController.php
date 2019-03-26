@@ -105,9 +105,4 @@ class RetailersController extends Controller
         $retailer = Retailer::where('slug',$request->retailer)->first();
         return view('admin.retailer-view',['retailer'=>$retailer]);
     }
-
-    public function delete(Request $request)
-    {
-        //
-    }
 }
