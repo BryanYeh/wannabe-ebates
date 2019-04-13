@@ -15,7 +15,7 @@
                     <i class="nav-icon icon-globe"></i> Retailers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin.categories') }}">
                     <i class="nav-icon icon-basket"></i> Categories</a>
             </li>
             <li class="nav-item">

@@ -67,6 +67,11 @@ Route::prefix('admin')->group(function() {
     Route::get('/retailers/view/{retailer}', 'Admin\RetailersController@view')->name('admin.retailer.view');
     Route::get('/retailers/edit/{retailer}', 'Admin\RetailersController@edit')->name('admin.retailer.edit');
     Route::post('/retailers/edit/{retailer}', 'Admin\RetailersController@update')->name('admin.retailer.update');
+
+    Route::get('/categories', 'Admin\CategoriesController@categories')->name('admin.categories');
+    Route::get('/categories/view/{category}', 'Admin\CategoriesController@view')->name('admin.category.view');
+    Route::get('/categories/edit/{category}', 'Admin\CategoriesController@edit')->name('admin.category.edit');
+    Route::post('/categories/edit/{category}', 'Admin\CategoriesController@update')->name('admin.category.update');
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');
