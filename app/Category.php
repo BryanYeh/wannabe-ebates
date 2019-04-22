@@ -27,4 +27,14 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Retailer')->withTimestamps();
     }
+
+    public function children(){
+        return $this->hasMany( 'App\Category', 'id','parent');
+    }
+
+    public function parent()
+    {
+        return ($this->parent == 0) ? "none" : $this->belongsTo( 'App\Category', 'parent' )->first()->name;
+    }
+    
 }

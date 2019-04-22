@@ -31,8 +31,8 @@
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->retailers->count() }}</td>
                             <td>
-                                <a href="{{ route('admin.retailer.edit',['reatailer' => $category->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-note"></i> Edit</a>
-                                <a href="{{ route('admin.retailer.view',['reatailer' => $category->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-magnifier"></i> View</a>
+                                <a href="{{ route('admin.category.edit',['category' => $category->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-note"></i> Edit</a>
+                                <a href="{{ route('admin.category.view',['category' => $category->slug ]) }}" class="btn btn-xs btn-primary"><i class="nav-icon icon-magnifier"></i> View</a>
                             </td>
                         </tr>                            
                         @endforeach

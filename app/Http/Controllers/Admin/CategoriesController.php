@@ -19,7 +19,8 @@ class CategoriesController extends Controller
     }
 
     public function view(Request $request){
-        //
+        $category = Category::where('slug', $request->category)->firstOrFail();
+        return view('admin.category-view',['category'=>$category]);
     }
 
     public function edit(Request $request){
