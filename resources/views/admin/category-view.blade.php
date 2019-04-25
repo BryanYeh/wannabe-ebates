@@ -11,7 +11,7 @@
             <div class="card-header">Category Information</div>
             <div class="card-body">
                 <p><strong>Name</strong>: {{ $category->name }}</p>
-                @if($category->parent != 0 )<p><strong>Parent</strong>: {{ $category->parent() }}</p>@endif
+                @if($category->parent != 0 )<p><strong>Parent</strong>: {{ $category->parent()->name }}</p>@endif
                 <p><strong>Slug</strong>: {{ $category->slug }}</p>
                 <p><strong>Description</strong>: {{ $category->description }}</p>
                 <p><strong>Position</strong>: {{ $category->position }}</p>

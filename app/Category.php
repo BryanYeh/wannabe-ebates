@@ -34,7 +34,7 @@ class Category extends Model
 
     public function parent()
     {
-        return ($this->parent == 0) ? "none" : $this->belongsTo( 'App\Category', 'parent' )->first()->name;
+        return ($this->parent == 0) ? "none" : $this->belongsTo( 'App\Category', 'parent' )->first();
     }
     
 }
