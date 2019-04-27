@@ -62,6 +62,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/members/edit/{user}', 'Admin\MembersController@edit')->name('admin.member.edit');
     Route::post('/members/edit/{user}', 'Admin\MembersController@update')->name('admin.member.update');
     Route::post('/members/password/reset', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.member.password.reset');
+    Route::get('/members/add', 'Admin\MembersController@add')->name('admin.member.add');
+    Route::post('/members/add', 'Admin\MembersController@create')->name('admin.member.create');
 
     Route::get('/retailers', 'Admin\RetailersController@retailers')->name('admin.retailers');
     Route::get('/retailers/view/{retailer}', 'Admin\RetailersController@view')->name('admin.retailer.view');

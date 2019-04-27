@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\User;
 use App\Retailer;
 use App\Category;
@@ -14,6 +16,7 @@ use Datatables;
 use Hashids;
 use App\Click;
 use Validator;
+use Illuminate\Support\Facades\Password;
 
 class MembersController extends Controller
 {
@@ -101,5 +104,38 @@ class MembersController extends Controller
         $user->save();
 
         return view('admin.member-edit',['user'=>$user]);
+    }
+
+    public function add()
+    {
+        return view('admin.member-add');
+    }
+
+    public function create(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = new User;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = str_random(5).'.'.$request->email;
+        $user->status = $request->has('status');
+        $user->password = Hash::make(str_random(15));
+        $user->save();
+
+        $clicks = Click::where('user_id',$user->id)->orderBy('created_at','DESC')->get();
+
+        $token = Password::getRepository()->create($user);
+        $user->sendPasswordResetNotification($token);
+        
+        return view('admin.member-view',['user'=>$user,'clicks'=>$clicks]);
     }
 }

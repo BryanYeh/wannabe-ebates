@@ -24,8 +24,8 @@
             <div class="card-header">
                 <i class="nav-icon icon-people"></i> Members
                 <div class="card-header-actions">
-                    <a class="card-header-action" href="https://datatables.net" target="_blank">
-                        <small class="text-muted">docs</small>
+                    <a class="card-header-action" href="{{ route('admin.member.add') }}">
+                        <small class="text-muted"><i class="fas fa-user-plus"></i> Add New Member</small>
                     </a>
                 </div>
             </div>
