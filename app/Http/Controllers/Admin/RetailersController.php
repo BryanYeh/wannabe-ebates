@@ -105,4 +105,15 @@ class RetailersController extends Controller
         $retailer = Retailer::where('slug',$request->retailer)->first();
         return view('admin.retailer-view',['retailer'=>$retailer]);
     }
+
+    public function add(Request $request)
+    {
+        $affiliate_networks = AffiliateNetwork::select('id','name','slug')->get();
+        return view('admin.retailer-add',['affiliate_networks'=>$affiliate_networks]);
+    }
+
+    public function create(Request $request)
+    {
+        //
+    }
 }

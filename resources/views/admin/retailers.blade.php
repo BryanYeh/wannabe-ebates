@@ -11,8 +11,8 @@
             <div class="card-header">
                 <i class="nav-icon icon-people"></i> Retailers
                 <div class="card-header-actions">
-                    <a class="card-header-action" href="https://datatables.net" target="_blank">
-                        <small class="text-muted">docs</small>
+                <a class="card-header-action" href="{{ route('admin.retailer.add') }}">
+                        <small class="text-muted"><i class="fas fa-plus"></i> Add New Retailer</small>
                     </a>
                 </div>
             </div>
