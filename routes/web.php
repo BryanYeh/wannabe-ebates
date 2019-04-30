@@ -76,6 +76,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/categories/view/{category}', 'Admin\CategoriesController@view')->name('admin.category.view');
     Route::get('/categories/edit/{category}', 'Admin\CategoriesController@edit')->name('admin.category.edit');
     Route::post('/categories/edit/{category}', 'Admin\CategoriesController@update')->name('admin.category.update');
+    Route::get('/categories/add', 'Admin\CategoriesController@add')->name('admin.category.add');
+    Route::post('/categories/add', 'Admin\CategoriesController@create')->name('admin.category.create');
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');

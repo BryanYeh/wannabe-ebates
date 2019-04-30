@@ -36,7 +36,7 @@ class CategoriesController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'parent' => 'required|integer|exists:categories,id',
+            'parent' => 'required|exists_or_zero:categories,id',
             'title' => 'required',
             'slug' => 'required',
             'position' => 'required|integer'
@@ -59,10 +59,47 @@ class CategoriesController extends Controller
         $category->position = $request->position;
         $category->save();
 
-        return redirect()->route('admin.category.edit',['category'=>$category->slug])->with('message', 'Successfully Updated!');
+        return redirect()->route('admin.category.view',['category'=>$category->slug])->with('message', 'Successfully Updated!');
     }
 
     public function remove(Request $request){
         //
+    }
+
+    public function add(Request $request)
+    {
+        $categories = Category::select('id','name')->get();
+        return view('admin.category-add',['categories'=>$categories]);
+    }
+
+    public function create(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'parent' => 'required|exists_or_zero:categories,id',
+            'title' => 'required',
+            'slug' => 'required',
+            'position' => 'required|integer'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)
+                ->withInput()
+                ->with('message', 'Fix the errors!');;
+        }
+
+        $category = new Category;
+        $category->name = strip_tags($request->name);
+        $category->parent = $request->parent;
+        $category->title = strip_tags($request->title);
+        $category->slug = str_slug($request->slug);
+        $category->description = Purifier::clean($request->description);
+        $category->meta_description = strip_tags($request->meta_descripton);
+        $category->meta_keywords = strip_tags($request->meta_keywords);        
+        $category->status = $request->has('status');
+        $category->position = $request->position;
+        $category->save();
+
+        return redirect()->route('admin.category.view',['category'=>$category->slug])->with('message', 'Successfully Created!');
     }
 }
