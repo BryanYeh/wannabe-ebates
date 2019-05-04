@@ -19,7 +19,7 @@
                     <i class="nav-icon icon-basket"></i> Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin.affiliates') }}">
                     <i class="nav-icon icon-graph"></i> Affiliate Network</a>
             </li>
             <li class="nav-item">

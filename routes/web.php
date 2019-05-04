@@ -78,6 +78,13 @@ Route::prefix('admin')->group(function() {
     Route::post('/categories/edit/{category}', 'Admin\CategoriesController@update')->name('admin.category.update');
     Route::get('/categories/add', 'Admin\CategoriesController@add')->name('admin.category.add');
     Route::post('/categories/add', 'Admin\CategoriesController@create')->name('admin.category.create');
+
+    Route::get('/affiliates','Admin\AffiliateNetworksController@affiliates')->name('admin.affiliates');
+    Route::get('/affiliates/view/{affliliate}', 'Admin\AffiliateNetworksController@view')->name('admin.affiliate.view');
+    Route::get('/affiliates/edit/{affliliate}', 'Admin\AffiliateNetworksController@edit')->name('admin.affiliate.edit');
+    Route::post('/affiliates/edit/{affliliate}', 'Admin\AffiliateNetworksController@update')->name('admin.affiliate.update');
+    Route::get('/affiliates/add', 'Admin\AffiliateNetworksController@add')->name('admin.affiliate.add');
+    Route::post('/affiliates/add', 'Admin\AffiliateNetworksController@create')->name('admin.affiliate.create');
 }) ;
 
 Route::get('/home', 'HomeController@index')->name('home');
