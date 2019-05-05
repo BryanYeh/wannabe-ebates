@@ -21,7 +21,8 @@ class AffiliateNetworksController extends Controller
     
     public function view(Request $request)
     {
-        //
+        $affiliate = AffiliateNetwork::where('slug', $request->affiliate)->firstOrFail();
+        return view('admin.affiliate-view',['affiliate'=>$affiliate]);
     }
 
     public function edit(Request $request)
