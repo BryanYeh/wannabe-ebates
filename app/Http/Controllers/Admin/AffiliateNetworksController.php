@@ -78,11 +78,44 @@ class AffiliateNetworksController extends Controller
 
     public function add(Request $request)
     {
-        //
+        return view('admin.affiliate-add');
     }
 
     public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'website' => 'required|url',
+            'slug' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('message', 'Fix the errors!');
+        }
+
+        $logo = "";
+        
+        if($request->hasfile('logo')){ 
+            $file = $request->file('logo');
+            $extension = $file->extension();
+            $filename = str_slug($request->name.'-'.str_random(5)).'.'.$extension;
+            $path = $file->storeAs('affiliate_network', $filename, 'public_images');
+
+            $logo = $path;
+        }
+
+        $affiliate = new AffiliateNetwork;
+        $affiliate->name = strip_tags($request->name);
+        $affiliate->website = $request->website;
+        $affiliate->slug = $request->slug;
+        $affiliate->subid = strip_tags($request->subid);
+        $affiliate->status = $request->has('status');
+        $affiliate->logo = $logo;
+        $affiliate->save();
+
+        return redirect()->route('admin.affiliate.view',['affiliate'=>$affiliate->slug])->with('message', 'Successfully Added ' . $affiliate->name . '!');
     }
 }
