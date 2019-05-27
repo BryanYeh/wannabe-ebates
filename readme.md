@@ -32,7 +32,7 @@ User Dashboard
 Admin (Generic not going into explaination)
 - [x] Admin Dashboard
 - [ ] Affliate Networks API
-- [ ] Simple Blog
+- ~[ ] Simple Blog~
 
 Future Things
 - [ ] Upgrade to Laravel 5.7 **Near Future**

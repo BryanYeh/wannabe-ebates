@@ -24,11 +24,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="nav-icon icon-notebook"></i> Blog</a>
-            </li>
-            <li class="nav-divider"></li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
                     <i class="nav-icon icon-people"></i> Users</a>
             </li>
             <li class="nav-item">
